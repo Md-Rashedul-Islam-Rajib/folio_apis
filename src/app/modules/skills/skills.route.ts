@@ -13,5 +13,6 @@ SkillRoutes.post(
   },
   SkillControllers.createSkill
 );
+SkillRoutes.get('/', SkillControllers.getAllSkills);
 
 export default SkillRoutes;
