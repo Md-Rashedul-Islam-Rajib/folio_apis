@@ -67,4 +67,9 @@ export class ProjectControllers {
     sendResponse(res,200,true,"Project updated successfully",undefined,result)
   })
 
+  static deleteProject = catchAsync(async (req, res) => {
+    await ProjectServices.deleteProject(req.params.id);
+    sendResponse(res,200,true,"Project deleted successfully",undefined,undefined)
+  })
+
 }
