@@ -32,4 +32,9 @@ export class ProjectServices {
 
         return result;
     }
+
+    static async deleteProject(id: string) {
+        const result = await prisma.project.delete({ where: { id } });
+        return result;
+    }
 }
