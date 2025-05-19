@@ -11,4 +11,9 @@ export class SkillServices {
 
     return result;
   }
+
+  static async getAllSkills() {
+    const result = await prisma.skill.findMany()
+    return result;
+  }
 }
