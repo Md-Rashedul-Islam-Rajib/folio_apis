@@ -10,11 +10,20 @@ ProjectRoutes.post(
   (req: Request, res: Response, next: NextFunction) => {
     req.body = JSON.parse(req.body.data);
     next();
-    },
+  },
   ProjectControllers.createProject
 );
 
 ProjectRoutes.get("/", ProjectControllers.getAllProjects);
 ProjectRoutes.get("/:id", ProjectControllers.getSingleProject);
+ProjectRoutes.put(
+  "/:id",
+  uploadFile.array("images", 10),
+  (req: Request, res: Response, next: NextFunction) => {
+    req.body = JSON.parse(req.body.data);
+    next();
+  },
+  ProjectControllers.updateProject
+);
 
 export default ProjectRoutes;
