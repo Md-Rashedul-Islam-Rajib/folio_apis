@@ -26,4 +26,6 @@ ProjectRoutes.put(
   ProjectControllers.updateProject
 );
 
+ProjectRoutes.delete("/:id", ProjectControllers.deleteProject);
+
 export default ProjectRoutes;
