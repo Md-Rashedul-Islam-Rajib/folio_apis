@@ -15,4 +15,11 @@ export class ProjectServices {
         const result = await prisma.project.findMany()
         return result;
     }
+
+    static async getSingleProject(id: string) {
+        const result = await prisma.project.findUnique({
+            where: {id}
+        })
+        return result;
+    }
 }
