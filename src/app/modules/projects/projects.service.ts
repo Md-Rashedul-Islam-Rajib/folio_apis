@@ -1,3 +1,4 @@
+import { Project } from "@prisma/client";
 import prisma from "../../config/prisma";
 import { TProject } from "./projects.type";
 
@@ -20,6 +21,15 @@ export class ProjectServices {
         const result = await prisma.project.findUnique({
             where: {id}
         })
+        return result;
+    }
+
+    static async updateProject(id: string, payload: Partial<Project>) {
+        const result = await prisma.project.update({
+            where: { id },
+            data: payload
+        })
+
         return result;
     }
 }
