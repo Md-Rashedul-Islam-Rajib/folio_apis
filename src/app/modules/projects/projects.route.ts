@@ -15,5 +15,6 @@ ProjectRoutes.post(
 );
 
 ProjectRoutes.get("/", ProjectControllers.getAllProjects);
+ProjectRoutes.get("/:id", ProjectControllers.getSingleProject);
 
 export default ProjectRoutes;
