@@ -15,6 +15,15 @@ SkillRoutes.post(
 );
 SkillRoutes.get('/', SkillControllers.getAllSkills);
 SkillRoutes.get('/:id', SkillControllers.getSingleSkill);
+SkillRoutes.put(
+  "/:id",
+  uploadFile.array("images", 10),
+  (req: Request, res: Response, next: NextFunction) => {
+    req.body = JSON.parse(req.body.data);
+    next();
+  },
+  SkillControllers.getSingleSkill
+);
 
 
 export default SkillRoutes;
