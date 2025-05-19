@@ -71,4 +71,9 @@ export class SkillControllers {
         sendResponse(res,200,true,"Skill updated successfully",undefined,result)
     })
 
+
+    static deleteSkill = catchAsync(async (req, res) => {
+        await SkillServices.deleteSkill(req.params.id);
+        sendResponse(res,200,true,"Skill deleted successfully",undefined,undefined)
+    })
 }
