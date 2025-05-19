@@ -16,4 +16,11 @@ export class SkillServices {
     const result = await prisma.skill.findMany()
     return result;
   }
+
+  static async getSingleSkill(id: string) {
+    const result = await prisma.skill.findUnique({
+      where: {id}
+    })
+    return result;
+  }
 }
