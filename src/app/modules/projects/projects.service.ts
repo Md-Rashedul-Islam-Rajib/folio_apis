@@ -11,5 +11,8 @@ export class ProjectServices {
         return result;
     }
 
-    
+    static async getAllProjects() {
+        const result = await prisma.project.findMany()
+        return result;
+    }
 }
