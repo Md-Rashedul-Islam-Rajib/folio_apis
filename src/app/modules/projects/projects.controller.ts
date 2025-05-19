@@ -32,4 +32,9 @@ export class ProjectControllers {
     const result = await ProjectServices.getAllProjects();
     sendResponse(res,200,true,"Projects fetched successfully",undefined,result)
   })
+
+  static getSingleProject = catchAsync(async (req, res) => {
+    const result = await ProjectServices.getSingleProject(req.params.id)
+    sendResponse(res,200,true,"Project fetched successfully",undefined,result)
+  })
 }
