@@ -14,5 +14,7 @@ SkillRoutes.post(
   SkillControllers.createSkill
 );
 SkillRoutes.get('/', SkillControllers.getAllSkills);
+SkillRoutes.get('/:id', SkillControllers.getSingleSkill);
+
 
 export default SkillRoutes;
