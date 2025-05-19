@@ -24,6 +24,7 @@ SkillRoutes.put(
   },
   SkillControllers.getSingleSkill
 );
+SkillRoutes.delete('/:id', SkillControllers.deleteSkill);
 
 
 export default SkillRoutes;
