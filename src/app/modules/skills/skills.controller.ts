@@ -32,4 +32,10 @@ export class SkillControllers {
       result
     );
   });
+
+    static getAllSkills = catchAsync(async (req, res) => {
+        const result = await SkillServices.getAllSkills();
+        sendResponse(res,200,true,"Skills fetched successfully",undefined,result)
+    })
+
 }
