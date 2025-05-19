@@ -31,4 +31,8 @@ export class SkillServices {
     })
     return result;
   }
+  static async deleteSkill(id: string) {
+    const result = await prisma.skill.delete({ where: { id } });
+    return result;
+  }
 }
