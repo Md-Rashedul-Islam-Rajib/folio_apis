@@ -14,4 +14,6 @@ ProjectRoutes.post(
   ProjectControllers.createProject
 );
 
+ProjectRoutes.get("/", ProjectControllers.getAllProjects);
+
 export default ProjectRoutes;
