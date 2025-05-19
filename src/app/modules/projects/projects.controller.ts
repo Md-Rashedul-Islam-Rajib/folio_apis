@@ -27,4 +27,9 @@ export class ProjectControllers {
         const result = await ProjectServices.createProject(payload);
         sendResponse(res,201,true,"Project created successfully",undefined,result)
     })
+  
+  static getAllProjects = catchAsync(async (req, res) => {
+    const result = await ProjectServices.getAllProjects();
+    sendResponse(res,200,true,"Projects fetched successfully",undefined,result)
+  })
 }
