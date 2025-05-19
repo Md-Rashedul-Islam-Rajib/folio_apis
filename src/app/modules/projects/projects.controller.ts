@@ -37,4 +37,34 @@ export class ProjectControllers {
     const result = await ProjectServices.getSingleProject(req.params.id)
     sendResponse(res,200,true,"Project fetched successfully",undefined,result)
   })
+
+  static updateProject = catchAsync(async (req, res) => {
+    const payload = req.body;
+
+    // Check if new image files are uploaded
+    if (req.files && Array.isArray(req.files) && req.files.length > 0) {
+      const imageUrls = await Promise.all(
+        req.files.map(async (file) => {
+          const uniqueSuffix = Date.now() + Math.round(Math.random() * 1e3);
+          const imageName = `${uniqueSuffix}-${"rashedul-islam-rajib"}`;
+          const path = file?.buffer;
+
+          const { secure_url } = await sendImageToCloudinary(imageName, path);
+          return secure_url;
+        })
+      );
+      payload.imageUrl = imageUrls;
+    } else {
+      const existingProject = await ProjectServices.getSingleProject(
+        req.params.id
+      );
+      if (existingProject) {
+        payload.imageUrl = existingProject.imageUrl;
+      }
+    }
+
+    const result = await ProjectServices.updateProject(req.params.id, payload);
+    sendResponse(res,200,true,"Project updated successfully",undefined,result)
+  })
+
 }
