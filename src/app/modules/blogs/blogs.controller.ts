@@ -38,4 +38,10 @@ export class BlogControllers {
     sendResponse(res,200,true,"Blogs fetched successfully",undefined,result)
   })
 
+
+  static getSingleBlog = catchAsync(async (req, res) => {
+    const result = await BlogServices.getSingleBlog(req.params.id);
+    sendResponse(res,200,true,"Blog fetched successfully",undefined,result)
+  })
+
 }
