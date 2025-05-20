@@ -11,4 +11,9 @@ export class BlogServices {
 
     return result;
   }
+
+  static async getAllBlogs() {
+    const result = await prisma.blog.findMany();
+    return result;
+  }
 }
