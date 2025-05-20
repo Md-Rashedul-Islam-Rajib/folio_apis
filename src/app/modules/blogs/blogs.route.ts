@@ -17,5 +17,14 @@ BlogRoutes.post(
 
 BlogRoutes.get('/', BlogControllers.getAllBlogs);
 BlogRoutes.get('/:id', BlogControllers.getSingleBlog);
+BlogRoutes.put(
+  "/:id",
+  uploadFile.array("images", 10),
+  (req: Request, res: Response, next: NextFunction) => {
+    req.body = JSON.parse(req.body.data);
+    next();
+  },
+  BlogControllers.updateBlog
+);
 
 export default BlogRoutes;
