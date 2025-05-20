@@ -15,4 +15,6 @@ BlogRoutes.post(
   BlogControllers.createBlog
 );
 
+BlogRoutes.get('/', BlogControllers.getAllBlogs);
+
 export default BlogRoutes;
