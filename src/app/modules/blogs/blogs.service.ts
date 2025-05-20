@@ -16,4 +16,11 @@ export class BlogServices {
     const result = await prisma.blog.findMany();
     return result;
   }
+
+  static async getSingleBlog(id: string) {
+    const result = await prisma.blog.findUnique({
+      where: {id}
+    })
+    return result;
+  }
 }
