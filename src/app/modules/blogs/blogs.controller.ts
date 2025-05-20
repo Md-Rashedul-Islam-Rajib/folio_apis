@@ -32,4 +32,10 @@ export class BlogControllers {
       result
     );
   });
+
+  static getAllBlogs = catchAsync(async (req, res) => {
+    const result = await BlogServices.getAllBlogs();
+    sendResponse(res,200,true,"Blogs fetched successfully",undefined,result)
+  })
+
 }
