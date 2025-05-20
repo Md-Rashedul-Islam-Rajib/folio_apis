@@ -32,4 +32,9 @@ export class BlogServices {
     })
     return result;
   }
+
+  static async deleteBlog(id: string) {
+    const result = await prisma.blog.delete({ where: { id } })
+    return result;
+  }
 }
