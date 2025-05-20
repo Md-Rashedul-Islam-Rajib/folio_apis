@@ -16,5 +16,6 @@ BlogRoutes.post(
 );
 
 BlogRoutes.get('/', BlogControllers.getAllBlogs);
+BlogRoutes.get('/:id', BlogControllers.getSingleBlog);
 
 export default BlogRoutes;
