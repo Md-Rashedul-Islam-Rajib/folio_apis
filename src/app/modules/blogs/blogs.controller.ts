@@ -73,4 +73,10 @@ export class BlogControllers {
   })
 
 
+  static deleteBlog = catchAsync(async (req, res) => {
+    await BlogServices.deleteBlog(req.params.id);
+    sendResponse(res,200,true,"Blog deleted successfully",undefined,undefined)
+  })
+
+
 }
